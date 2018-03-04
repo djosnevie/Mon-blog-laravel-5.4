@@ -3,7 +3,7 @@
 	
 	<h1>Gestion des articles</h1>
 	<p>
-		<a href="" class="btn btn-primary">Ajouter un nouvel articles</a>
+		<a href="{{ route('admin.posts.create') }}" class="btn btn-primary">Ajouter un nouvel articles</a>
 	</p>
 	<table class="table table-striped">
 		<thead>
@@ -23,7 +23,7 @@
 					<td>{{ $post->name }}</td>
 					<td>{{ $post->category->name }}</td>
 					<td>{{ $post->created_at->format('d/m/Y H:i') }}</td>
-					<td><a href="#" class="btn btn-primary">Editer</a> <a href="#" class="btn btn-danger">Supprimer</a></td>
+					<td><a href="{{ route('admin.posts.edit', $post->id) }}" class="btn btn-primary">Editer</a> <a href="#" class="btn btn-danger">Supprimer</a></td>
 				</tr>
 				
         	@endforeach

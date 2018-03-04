@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Post;
 use App\category;
 
-class AdminController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,9 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        $post = new Post();
+        $categories = category::pluck('name', 'id');
+        return view('admin.posts.create', compact('post','categories'));
     }
 
     /**
@@ -38,7 +40,8 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = Post::create($request->all());
+        return "Doen !";
     }
 
     /**
@@ -60,7 +63,9 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::get()->where('id', $id)->first();
+        $categories = category::pluck('name','id');
+        return view('admin.posts.edit', compact('post','categories'));
     }
 
     /**
@@ -72,7 +77,8 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Post::where('id', $id)->update($request->all());
+        return 'Doen !';
     }
 
     /**
