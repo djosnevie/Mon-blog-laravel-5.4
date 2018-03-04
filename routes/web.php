@@ -35,3 +35,4 @@ Route::get('category/{slug}', ['as'=>'posts.category', 'uses'=>'PostController@c
 
 
 Route::get('/home', 'HomeController@index');
+Route::get('/admin','admin\AdminController@index');
