@@ -16,7 +16,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::with('category')->paginate(10);
+        $posts = Post::with('category')->orderBy('id','desc')->paginate(10);
         return view('admin.posts.index', compact('posts'));
     }
 
@@ -41,7 +41,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $data = Post::create($request->all());
-        return "Doen !";
+        return redirect()->route('admin.posts.index')->with("success","L'article à bien était créer");
     }
 
     /**
@@ -78,7 +78,7 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         $data = Post::where('id', $id)->update($request->all());
-        return 'Doen !';
+        return redirect()->route('admin.posts.index')->with("success","L'article à bien etait modifier");
     }
 
     /**
