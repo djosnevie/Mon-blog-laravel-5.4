@@ -40,4 +40,5 @@ Route::group(["prefix" => "admin", "namespace" => "admin", "as" => "admin."], fu
 	Route::resource('posts','PostController');
 
 });
+Route::get('/admin', 'admin\PostController@red')->name('dh');
 #Route::get('/admin','admin\AdminController@index');

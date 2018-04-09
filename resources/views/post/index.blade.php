@@ -25,7 +25,6 @@
  <div class="list-group">
   @foreach( $categories as $category)
     <a href="{{ route('posts.category', $category->slug) }}" class="list-group-item justify-content-between">{{ $category->name }}
-    <span class="badge badge-default badge-pill badge-primary">{{ $category->posts_count }}</span>
     </a>
    @endforeach
  </div>
