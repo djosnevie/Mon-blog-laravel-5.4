@@ -12,7 +12,6 @@ class PostController extends Controller
     public function index(){
     	$posts= Post::with("category")->orderBy("id","desc")->paginate(3);
     	$lasts= Post::orderBy("id","desc")->limit(3)->get();
-        $astuces = category::get()->where('slug', 'astuces')->first();
     	$categories= category::all();
     	return view("post.index", compact("posts", "categories", "lasts"));
         

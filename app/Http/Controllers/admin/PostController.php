@@ -40,13 +40,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $slug = str_slug($request->name);
-        $data = Post::create([
-            'name'=>$request->name,
-            'slug'=>$slug,
-            'category_id'=>$request->category_id,
-            'content'=>$request->content
-        ]);
+        $data = Post::create($request->all());
         return redirect()->route('admin.posts.index')->with("success","L'article à bien était créer");
     }
 
@@ -83,13 +77,7 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $slug = str_slug($request->name);
-        $data = Post::where('id', $id)->update([
-            'name'=>$request->name,
-            'slug'=>$slug,
-            'category_id'=>$request->category_id,
-            'content'=>$request->content
-        ]);
+        $data = Post::where('id', $id)->update($request->all());
         return redirect()->route('admin.posts.index')->with("success","L'article à bien etait modifier");
     }
 
@@ -102,9 +90,5 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
-    }
-    public function red()
-    {
-        return redirect()->route('admin.posts.index');
     }
 }

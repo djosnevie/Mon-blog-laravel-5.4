@@ -13,7 +13,7 @@
 			<div class="col-md-6">
 				<div class="form-group">
 					{!! Form::label('slug','Slug') !!}
-					{!! Form::text('slug', null, ['class'=>'form-control', 'disabled']) !!}
+					{!! Form::text('slug', null, ['class'=>'form-control']) !!}
 				</div>
 			</div>
 			<div class="col-md-6">
